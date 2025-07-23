@@ -6,9 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins'],
+      },
+
       colors: {
         primary: '#1E2124',
-      }
+      },
     },
   },
   plugins: [],
