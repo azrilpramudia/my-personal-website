@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="bg-[#1E2124] text-white px-8 py-4 shawow-md flex justify-between items-center">
+    <nav className="bg-primary text-white px-8 py-4 shawow-md flex justify-between items-center">
       {/* Logo */}
       <div className="text-2xl font-bold cursor-pointer">
         <span className="text-white">Its</span>
