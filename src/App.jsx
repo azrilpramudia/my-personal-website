@@ -1,4 +1,5 @@
 import AboutSection from "./components/AboutSection";
+import ExperienceSection from "./components/ExperienceSection";
 import HomeSection from "./components/HomeSection";
 import Navbar from "./components/Navbar";
 import SkillsSection from "./components/SkillsSection";
@@ -10,6 +11,7 @@ function App() {
       <HomeSection />
       <AboutSection />
       <SkillsSection />
+      <ExperienceSection />
     </>
   );
 }
