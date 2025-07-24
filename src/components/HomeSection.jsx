@@ -78,7 +78,7 @@ const HomeSection = () => {
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mt-8">
         <a
-          href="src/assets/My Personal CV.pdf"
+          href="public/My Personal CV.pdf"
           download
           className="bg-red-900/30 border border-red-700 text-red-400 px-4 py-3 rounded-md font-poppins text-sm sm:text-base hover:bg-red-800/50 shadow-[0_0_15px_rgba(255,0,0,0.5)] transition"
         >
