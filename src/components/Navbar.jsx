@@ -23,7 +23,7 @@ const Navbar = () => {
       </ul>
 
       {/* Button */}
-      <button className="bg-red-600 hover:bg-red-400 font-poppins text-white text-sm px-4 py-2 rounded-md transition duration-200 cursor-pointer">
+      <button className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200">
         Hire Me
       </button>
     </nav>
