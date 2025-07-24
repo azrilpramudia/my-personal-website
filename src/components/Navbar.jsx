@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // pastikan sudah install lucide-react
+import { Menu, X } from "lucide-react";
+import { Link } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
