@@ -91,7 +91,7 @@ const SkillsSection = () => {
   return (
     <section className="min-h-screen bg-secondary text-white px-6 py-12 flex flex-col items-center">
       {/* Heading Skills */}
-      <h2 className="text-4xl font-bold text-white mb-16 text-center font-poppins">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-16 text-center font-poppins">
         Skills
       </h2>
 
