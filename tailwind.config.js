@@ -15,13 +15,18 @@ export default {
       },
       animation: {
         blink: 'blink 1s step-start infinite',
+        float: 'float 3s ease-in-out infinite',
       },
       keyframes: {
         blink: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0' },
-        }
-      }
+        },
+        float: { // ⬅️ tambahkan ini juga
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-15px)' },
+        },
+      },
     },
   },
   plugins: [],
