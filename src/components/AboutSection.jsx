@@ -2,7 +2,7 @@ const AboutSection = () => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-primary to-secondary flex flex-col justify-center items-center px-4 text-center text-white">
       {/* {Title} */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-poppins">
+      <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold mb-6 font-poppins">
         About Me
       </h1>
 
