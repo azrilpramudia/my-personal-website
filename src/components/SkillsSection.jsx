@@ -97,8 +97,10 @@ const SkillsSection = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Star Static
-    let stars = Array.from({ length: 150 }, () => ({
+    let isMobile = window.innerWidth <= 768;
+    let baseSpeed = isMobile ? 3 : 6;
+
+    const stars = Array.from({ length: 150 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       radius: Math.random() * 1.5,
@@ -106,7 +108,6 @@ const SkillsSection = () => {
       delta: Math.random() * 0.02,
     }));
 
-    // Star Shooting
     let shootingStars = [];
 
     function createShootingStar() {
@@ -114,7 +115,7 @@ const SkillsSection = () => {
         x: Math.random() * width,
         y: 0,
         length: Math.random() * 80 + 50,
-        speed: Math.random() * 6 + 4,
+        speed: baseSpeed + Math.random() * 4,
         angle: Math.PI / 4,
         alpha: 1,
       });
@@ -150,9 +151,7 @@ const SkillsSection = () => {
         star.y += Math.sin(star.angle) * star.speed;
         star.alpha -= 0.01;
 
-        if (star.alpha <= 0) {
-          shootingStars.splice(index, 1);
-        }
+        if (star.alpha <= 0) shootingStars.splice(index, 1);
       });
     }
 
@@ -161,10 +160,7 @@ const SkillsSection = () => {
       drawStars();
       drawShootingStars();
 
-      // Create a shooting star randomly
-      if (Math.random() < 0.02) {
-        createShootingStar();
-      }
+      if (Math.random() < 0.02) createShootingStar();
 
       requestAnimationFrame(animate);
     }
@@ -174,31 +170,24 @@ const SkillsSection = () => {
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      isMobile = window.innerWidth <= 768;
+      baseSpeed = isMobile ? 3 : 6;
     };
 
     window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <section className="relative min-h-screen bg-secondary text-white px-4 sm:px-6 py-12 flex flex-col items-center overflow-hidden">
-      {/* Background Canvas */}
-      <canvas
-        id="star-canvas"
-        className="absolute inset-0 w-full h-full z-0"
-      ></canvas>
-
-      {/* Content */}
+      <canvas id="star-canvas" className="absolute inset-0 w-full h-full z-0" />
       <div className="relative z-10 w-full">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-12 sm:mb-16 text-center font-poppins">
           Skills
         </h2>
 
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 md:gap-14">
-          {/* Skills Grid */}
           <div className="w-full md:w-2/3 flex justify-center">
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-6 gap-y-8">
               {skills.map((skill, index) => (
@@ -207,12 +196,7 @@ const SkillsSection = () => {
                   className="flex flex-col items-center text-center group"
                 >
                   <div
-                    className={`
-                      w-16 h-16 sm:w-20 sm:h-20 p-2 rounded-md border-2
-                      ${skill.border} bg-[#1E1E1E] ${skill.shadow} shadow-md
-                      hover:bg-[#2E2E2E] hover:shadow-lg hover:scale-105
-                      transition duration-300 ease-in-out flex items-center justify-center
-                    `}
+                    className={`w-16 h-16 sm:w-20 sm:h-20 p-2 rounded-md border-2 ${skill.border} bg-[#1E1E1E] ${skill.shadow} shadow-md hover:bg-[#2E2E2E] hover:shadow-lg hover:scale-105 transition duration-300 ease-in-out flex items-center justify-center`}
                   >
                     <img
                       src={skill.src}
@@ -228,7 +212,6 @@ const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Astronaut */}
           <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end pr-32">
             <img
               src={astronaut}
