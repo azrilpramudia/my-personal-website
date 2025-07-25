@@ -182,10 +182,15 @@ const SkillsSection = () => {
   return (
     <section className="relative min-h-screen bg-secondary text-white px-4 sm:px-6 py-12 flex flex-col items-center overflow-hidden">
       <canvas id="star-canvas" className="absolute inset-0 w-full h-full z-0" />
-      <div className="relative z-10 w-full">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-12 sm:mb-16 text-center font-poppins">
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center font-poppins">
           Skills
         </h2>
+
+        <p className="text-center font-poppins text-lg text-gray-300 mb-12 sm:mb-16 px-2 sm:px-8 md:px-20">
+          My expertise and experience in the field.
+        </p>
 
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 md:gap-14">
           <div className="w-full md:w-2/3 flex justify-center">
@@ -212,11 +217,11 @@ const SkillsSection = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end pr-32">
+          <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end pr-0">
             <img
               src={astronaut}
               alt="Astronaut"
-              className="w-64 sm:w-72 md:w-80 lg:w-[28rem] object-contain animate-float -translate-x-6"
+              className="w-72 sm:w-80 md:w-96 lg:w-[36rem] object-contain animate-float -translate-x-6"
             />
           </div>
         </div>
@@ -224,5 +229,4 @@ const SkillsSection = () => {
     </section>
   );
 };
-
 export default SkillsSection;
