@@ -3,10 +3,8 @@ import { FaGithub, FaLinkedin, FaFacebook, FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
     <>
-      {/* HR di atas footer */}
       <hr className="border-gray-600" />
-
-      <footer className="bg-gradient-to-b from-secondary to bg-primary text-white px-6 md:px-20 py-12">
+      <footer className="bg-primary text-white px-6 md:px-20 py-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand / Deskripsi */}
           <div>
@@ -81,10 +79,12 @@ const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <hr className="my-8 border-gray-600" />
-        <p className="text-center text-sm text-gray-400">
-          © 2025 Azril Pramudia. All rights reserved.
-        </p>
+        <div className="max-w-7xl mx-auto mt-8">
+          <hr className="border-gray-600" />
+          <p className="text-center text-sm text-gray-400 mt-4">
+            © 2025 Azril Pramudia. All rights reserved.
+          </p>
+        </div>
       </footer>
     </>
   );
