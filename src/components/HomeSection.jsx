@@ -1,4 +1,5 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
 
 const HomeSection = () => {
@@ -64,7 +65,7 @@ const HomeSection = () => {
           target="_blank"
           className="hover:text-blue-400 transition"
         >
-          <FaTwitter />
+          <FaXTwitter />
         </a>
         <a
           href="https://www.facebook.com/azril.pramudia.01"
