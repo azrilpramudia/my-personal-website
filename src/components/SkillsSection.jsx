@@ -184,9 +184,9 @@ const SkillsSection = () => {
       <canvas id="star-canvas" className="absolute inset-0 w-full h-full z-0" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center font-poppins">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center font-poppins">
           Skills
-        </h2>
+        </h1>
 
         <p className="text-center font-poppins text-lg text-gray-300 mb-12 sm:mb-16 px-2 sm:px-8 md:px-20">
           My expertise and experience in the field.
