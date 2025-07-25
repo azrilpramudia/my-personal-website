@@ -1,12 +1,12 @@
 const AboutSection = () => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-primary to-secondary flex flex-col justify-center items-center px-4 text-center text-white">
-      {/* Judul */}
+      {/* {Title} */}
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-poppins">
         About Me
       </h1>
 
-      {/* Deskripsi */}
+      {/* {Desciption} */}
       <p className="max-w-2xl text-sm sm:text-base md:text-lg text-gray-300 font-poppins">
         I'm an informatics engineering student looking to develop and learn new
         things. My learning experience in web development with JavaScript,

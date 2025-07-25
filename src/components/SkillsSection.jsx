@@ -97,6 +97,7 @@ const SkillsSection = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    // Star Static
     let stars = Array.from({ length: 150 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -105,8 +106,21 @@ const SkillsSection = () => {
       delta: Math.random() * 0.02,
     }));
 
-    function animateStars() {
-      ctx.clearRect(0, 0, width, height);
+    // Star Shooting
+    let shootingStars = [];
+
+    function createShootingStar() {
+      shootingStars.push({
+        x: Math.random() * width,
+        y: 0,
+        length: Math.random() * 80 + 50,
+        speed: Math.random() * 6 + 4,
+        angle: Math.PI / 4,
+        alpha: 1,
+      });
+    }
+
+    function drawStars() {
       stars.forEach((star) => {
         ctx.globalAlpha = star.alpha;
         ctx.beginPath();
@@ -117,10 +131,45 @@ const SkillsSection = () => {
         star.alpha += star.delta;
         if (star.alpha <= 0 || star.alpha >= 1) star.delta = -star.delta;
       });
-      requestAnimationFrame(animateStars);
     }
 
-    animateStars();
+    function drawShootingStars() {
+      shootingStars.forEach((star, index) => {
+        const dx = Math.cos(star.angle) * star.length;
+        const dy = Math.sin(star.angle) * star.length;
+
+        ctx.globalAlpha = star.alpha;
+        ctx.beginPath();
+        ctx.moveTo(star.x, star.y);
+        ctx.lineTo(star.x + dx, star.y + dy);
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        star.x += Math.cos(star.angle) * star.speed;
+        star.y += Math.sin(star.angle) * star.speed;
+        star.alpha -= 0.01;
+
+        if (star.alpha <= 0) {
+          shootingStars.splice(index, 1);
+        }
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      drawStars();
+      drawShootingStars();
+
+      // Create a shooting star randomly
+      if (Math.random() < 0.02) {
+        createShootingStar();
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
 
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
@@ -136,20 +185,20 @@ const SkillsSection = () => {
 
   return (
     <section className="relative min-h-screen bg-secondary text-white px-4 sm:px-6 py-12 flex flex-col items-center overflow-hidden">
-      {/* Canvas background bintang */}
+      {/* Background Canvas */}
       <canvas
         id="star-canvas"
         className="absolute inset-0 w-full h-full z-0"
       ></canvas>
 
-      {/* Konten utama */}
+      {/* Content */}
       <div className="relative z-10 w-full">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-12 sm:mb-16 text-center font-poppins">
           Skills
         </h2>
 
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 md:gap-14">
-          {/* Grid Skill */}
+          {/* Skills Grid */}
           <div className="w-full md:w-2/3 flex justify-center">
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-6 gap-y-8">
               {skills.map((skill, index) => (
@@ -179,12 +228,12 @@ const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Astronot */}
-          <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end">
+          {/* Astronaut */}
+          <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end pr-32">
             <img
               src={astronaut}
               alt="Astronaut"
-              className="w-64 sm:w-72 md:w-80 lg:w-[28rem] object-contain animate-float"
+              className="w-64 sm:w-72 md:w-80 lg:w-[28rem] object-contain animate-float -translate-x-6"
             />
           </div>
         </div>
