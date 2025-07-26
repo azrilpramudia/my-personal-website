@@ -6,6 +6,8 @@ import HomeSection from "./components/HomeSection";
 import Navbar from "./components/Navbar";
 import ProjectSection from "./components/ProjectSection";
 import SkillsSection from "./components/SkillsSection";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <ProjectSection />
       <ContactSection />
       <Footer />
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
