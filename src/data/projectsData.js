@@ -29,7 +29,7 @@ export const projects = [
       category: "Frontend Application",
       description:
         "Intuitive task management application with drag-and-drop functionality and team collaboration features.",
-      tags: ["Vue.js", "Tailwind CSS", "Pinia", "Vite"],
+      tags: ["Vue.js", "Tailwind CSS", "Pinia", "Vite", "WebSockets"],
       featured: false,
       liveDemo: "#",
       github: "#",
