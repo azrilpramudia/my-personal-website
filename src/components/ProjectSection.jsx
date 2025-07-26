@@ -65,6 +65,7 @@ const ProjectSection = () => {
 
   return (
     <section
+      id="projects"
       className="relative min-h-screen bg-secondary flex justify-center items-center p-6 sm:p-8 py-28 sm:py-36 font-poppins"
       data-section="project-section"
     >

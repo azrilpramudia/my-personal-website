@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +7,10 @@ const Navbar = () => {
   const navItems = ["Home", "About", "Projects", "Experience", "Contact"];
 
   return (
-    <nav className="bg-primary text-white px-6 md:px-12 py-4 shadow-md flex justify-between items-center">
+    <nav
+      id="home"
+      className="bg-primary text-white px-6 md:px-12 py-4 shadow-md flex justify-between items-center"
+    >
       {/* Logo */}
       <div className="text-2xl font-bold font-poppins cursor-pointer">
         <span className="text-white">Its</span>
@@ -28,10 +30,15 @@ const Navbar = () => {
           {navItems.map((item) => (
             <li
               key={item}
+              onClick={() => {
+                const section = document.getElementById(item.toLowerCase());
+                section?.scrollIntoView({ behavior: "smooth" });
+                setIsOpen(false); // Tutup menu mobile setelah klik
+              }}
               className="relative cursor-pointer after:content-['']
-                after:absolute after:left-0 after:bottom-1 after:w-0
-                hover:after:w-full after:h-[2px] after:bg-blue-600
-                after:transition-all after-duration-300 hover:text-blue-500"
+      after:absolute after:left-0 after:bottom-1 after:w-0
+      hover:after:w-full after:h-[2px] after:bg-blue-600
+      after:transition-all after-duration-300 hover:text-blue-500"
             >
               {item}
             </li>
