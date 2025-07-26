@@ -6,7 +6,9 @@ const ProjectSection = () => {
     <section className="min-h-screen bg-secondary flex justify-center items-center p-8 py-36 font-poppins">
       <div className="max-w-6xl w-full">
         <div className="text-center mb-12">
-          <h1 className="text-white text-4xl font-bold mb-4">Projects</h1>
+          <h1 className="text-white text-3xl md:text-4xl font-bold mb-4">
+            Projects
+          </h1>
           <p className="text-gray-400 text-lg">
             A collection of my recent work and experiments
           </p>
