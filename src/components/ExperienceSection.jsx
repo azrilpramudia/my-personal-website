@@ -70,7 +70,7 @@ const ExperienceSection = () => {
               className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start relative"
             >
               {/* Bullet */}
-              <div className="absolute left-4 top-3 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#0F111A] border border-gray-600 shadow-[0_0_8px_rgba(100,100,255,0.2)] flex items-center justify-center z-20">
+              <div className="absolute left-4 top-3 transform -translate-x-1/2 w-6 h-6 rounded-full bg-secondary border border-gray-600 shadow-[0_0_8px_rgba(100,100,255,0.2)] flex items-center justify-center z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-transparent border border-gray-400" />
               </div>
 
@@ -90,7 +90,7 @@ const ExperienceSection = () => {
 
               {/* Right Side Box */}
               <div className="md:col-span-7 mt-4 md:mt-0 ml-12">
-                <div className="bg-[#111] border border-gray-700 rounded-xl p-5 shadow-md shadow-purple-500/40">
+                <div className="bg-secondary border border-gray-700 rounded-xl p-5 shadow-md shadow-white/30 hover:shadow-white/40 transition-shadow duration-300">
                   <p className="font-semibold mb-3 text-sm">{exp.date}</p>
                   <ul className="list-disc list-inside text-gray-300 space-y-2 text-sm">
                     {exp.descriptions.map((desc, i) => (
