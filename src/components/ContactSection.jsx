@@ -33,7 +33,7 @@ const ContactSection = () => {
 
   return (
     <section
-      className="bg-secondary text-white py-20 px-6 font-poppins"
+      className="bg-gradient-to-b from-secondary to bg-primary text-white py-20 px-6 font-poppins"
       id="contact"
     >
       <div className="max-w-4xl mx-auto text-center">
