@@ -1,3 +1,7 @@
+import projects1 from "/project1.png";
+import projects2 from "/project2.jpg";
+import projects3 from "/project3.jpg";
+
 export const projects = [
     {
       title: "NAJM Course API",
@@ -9,7 +13,7 @@ export const projects = [
       featured: true,
       liveDemo: "#",
       github: "#",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop&auto=format",
+      image: projects1,
     },
     {
       title: "E-Learning Platform",
@@ -21,7 +25,7 @@ export const projects = [
       featured: false,
       liveDemo: "#",
       github: "#",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=250&fit=crop&auto=format",
+      image: projects2,
     },
     {
       title: "Task Management App",
@@ -33,6 +37,8 @@ export const projects = [
       featured: false,
       liveDemo: "#",
       github: "#",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop&auto=format",
+      image: projects3,
     },
   ];
+
+  export {projects1, projects2, projects3};
