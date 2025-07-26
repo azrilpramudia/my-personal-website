@@ -50,7 +50,6 @@ const ProjectSection = () => {
       requestAnimationFrame(animate);
     };
 
-    // Delay to wait for full DOM rendering
     setTimeout(() => {
       initializeStars();
       animate();

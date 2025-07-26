@@ -4,47 +4,62 @@ import { useEffect } from "react";
 const ExperienceSection = () => {
   useEffect(() => {
     const canvas = document.getElementById("exp-star-canvas");
+    const section = canvas?.parentElement;
+    if (!canvas || !section) return;
+
     const ctx = canvas.getContext("2d");
 
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    const updateCanvasSize = () => {
+      const width = section.offsetWidth;
+      const height = section.offsetHeight;
+      canvas.width = width;
+      canvas.height = height;
+      return { width, height };
+    };
 
-    const stars = Array.from({ length: 150 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.5,
-      alpha: Math.random(),
-      delta: Math.random() * 0.02,
-    }));
+    let width = 0;
+    let height = 0;
+    let stars = [];
 
-    function drawStars() {
+    const initializeStars = () => {
+      ({ width, height } = updateCanvasSize());
+      stars = Array.from({ length: 150 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.5,
+        alpha: Math.random(),
+        delta: Math.random() * 0.02,
+      }));
+    };
+
+    const drawStars = () => {
       stars.forEach((star) => {
         ctx.globalAlpha = star.alpha;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = "white";
         ctx.fill();
-
         star.alpha += star.delta;
         if (star.alpha <= 0 || star.alpha >= 1) star.delta = -star.delta;
       });
-    }
+    };
 
-    function animate() {
+    const animate = () => {
       ctx.clearRect(0, 0, width, height);
       drawStars();
       requestAnimationFrame(animate);
-    }
+    };
 
-    animate();
+    setTimeout(() => {
+      initializeStars();
+      animate();
+    }, 100);
 
     const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      initializeStars();
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
