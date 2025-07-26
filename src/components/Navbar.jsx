@@ -1,19 +1,80 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
-  const navItems = ["Home", "About", "Projects", "Experience", "Contact"];
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Projects", id: "projects" },
+    { label: "Experience", id: "experience" },
+    { label: "Contact", id: "contact" },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const offset = 100;
+
+      for (const item of navItems) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.offsetTop - offset;
+          const bottom = top + el.offsetHeight;
+
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const renderNavLinks = (mobile = false) => (
+    <ul
+      className={`flex ${
+        mobile ? "flex-col space-y-4" : "space-x-6"
+      } font-poppins text-base`}
+    >
+      {navItems.map((item) => (
+        <li key={item.id}>
+          <a
+            href={`#${item.id}`}
+            onClick={() => setIsOpen(false)}
+            className={`cursor-pointer transition-colors duration-300 ${
+              activeSection === item.id
+                ? "text-blue-500 font-semibold"
+                : "text-white hover:text-blue-400"
+            }`}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+      {mobile && (
+        <button className="mt-4 font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200">
+          Hire Me
+        </button>
+      )}
+    </ul>
+  );
 
   return (
-    <nav className="bg-primary text-white px-6 md:px-12 py-4 shadow-md flex justify-between items-center">
+    <nav className="bg-primary text-white px-6 md:px-12 py-4 shadow-md flex justify-between items-center fixed w-full z-50">
       {/* Logo */}
-      <div className="text-2xl font-bold font-poppins cursor-pointer">
-        <span className="text-white">Its</span>
-        <span className="text-white">Meow.</span>
-      </div>
+      <a
+        href="#home"
+        className="text-2xl font-bold font-poppins cursor-pointer text-white"
+      >
+        <span>Its</span>
+        <span>Meow.</span>
+      </a>
 
       {/* Hamburger Icon (Mobile) */}
       <div className="md:hidden">
@@ -22,21 +83,9 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Menu Items & Button (Desktop) */}
+      {/* Menu Items (Desktop) */}
       <div className="hidden md:flex items-center space-x-6">
-        <ul className="flex space-x-6 text-md font-poppins">
-          {navItems.map((item) => (
-            <li
-              key={item}
-              className="relative cursor-pointer after:content-['']
-                after:absolute after:left-0 after:bottom-1 after:w-0
-                hover:after:w-full after:h-[2px] after:bg-blue-600
-                after:transition-all after-duration-300 hover:text-blue-500"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+        {renderNavLinks(false)}
         <button className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200">
           Hire Me
         </button>
@@ -44,17 +93,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-[72px] left-0 w-full bg-primary text-white shadow-lg md:hidden z-50">
-          <ul className="flex flex-col space-y-4 px-6 py-4 font-poppins text-base">
-            {navItems.map((item) => (
-              <li key={item} className="cursor-pointer hover:text-blue-400">
-                {item}
-              </li>
-            ))}
-            <button className="mt-4 font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200">
-              Hire Me
-            </button>
-          </ul>
+        <div className="absolute top-[72px] left-0 w-full bg-primary text-white shadow-lg md:hidden z-50 px-6 py-4">
+          {renderNavLinks(true)}
         </div>
       )}
     </nav>

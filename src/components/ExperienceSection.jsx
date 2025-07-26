@@ -64,7 +64,10 @@ const ExperienceSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-secondary text-white py-20 px-4 sm:px-6 md:px-10 font-poppins overflow-hidden">
+    <section
+      id="experience"
+      className="relative bg-secondary text-white py-20 px-4 sm:px-6 md:px-10 font-poppins overflow-hidden"
+    >
       <canvas
         id="exp-star-canvas"
         className="absolute inset-0 w-full h-full z-0"
