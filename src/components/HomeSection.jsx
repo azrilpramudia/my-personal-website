@@ -6,7 +6,7 @@ const HomeSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen bg-primary text-white flex flex-col justify-center items-center px-6 sm:px-8 md:px-16"
+      className="min-h-screen bg-primary text-white flex flex-col justify-center items-center py-36 px-6 sm:px-8 md:px-16"
     >
       {/* Profile Image */}
       <img
