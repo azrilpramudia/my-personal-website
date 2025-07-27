@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { projects } from "../data/projectsData";
+import { Link } from "react-router-dom";
 
 const ProjectSection = () => {
   useEffect(() => {
@@ -151,20 +152,48 @@ const ProjectSection = () => {
                   )}
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                  <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 min-h-[40px]">
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </button>
-                  <button className="flex-1 bg-secondary hover:bg-gray-600 border border-gray-200/20 text-white text-sm py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 min-h-[40px]">
-                    <Github size={16} />
-                    Code
-                  </button>
+                  {/* Live Demo and Code Links */}
+                  {project.hasLiveDemo && (
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2.5 px-4 rounded-lg 
+                 transition-colors duration-200 flex items-center justify-center gap-2 min-h-[40px]"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
+
+                  {/* Github Code */}
+                  {project.hasGithub && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-secondary hover:bg-gray-600 border border-gray-200/20 text-white 
+                 text-sm py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center 
+                 justify-center gap-2 min-h-[40px]"
+                    >
+                      <Github size={16} />
+                      Code
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
+          {/* See More button here */}
+          <div className="mt-10 text-center">
+            <Link
+              to="/projects"
+              className="inline-block bg-white/10 hover:bg-white/20 border border-white text-white px-6 py-2 rounded-md font-medium transition duration-300"
+            >
+              See More
+            </Link>
+          </div>
         </div>
       </div>
     </section>

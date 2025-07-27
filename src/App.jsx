@@ -8,6 +8,7 @@ import ProjectSection from "./components/ProjectSection";
 import SkillsSection from "./components/SkillsSection";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AppRouter from "./router";
 
 function App() {
   return (
