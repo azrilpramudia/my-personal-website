@@ -1,27 +1,16 @@
-import AboutSection from "./components/AboutSection";
-import ContactSection from "./components/ContactSection";
-import ExperienceSection from "./components/ExperienceSection";
-import Footer from "./components/Footer";
-import HomeSection from "./components/HomeSection";
+import AppRouter from "./router";
 import Navbar from "./components/Navbar";
-import ProjectSection from "./components/ProjectSection";
-import SkillsSection from "./components/SkillsSection";
+import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AppRouter from "./router";
 
 function App() {
   return (
     <>
       <Navbar />
-      <HomeSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <ProjectSection />
-      <ContactSection />
-      <Footer />
+      <AppRouter />
       <ToastContainer position="bottom-right" />
+      <Footer />
     </>
   );
 }
