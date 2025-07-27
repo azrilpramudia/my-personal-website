@@ -1,16 +1,16 @@
-import html from "/html.png";
-import css from "/css.png";
-import js from "/js.png";
-import node from "/nodejs.png";
-import react from "/react.png";
-import tailwind from "/tailwind.png";
-import git from "/git.png";
-import github from "/github.png";
-import mysql from "/mysql.png";
-import postman from "/postman.png";
-import linux from "/linux.png";
-import figma from "/figma.png";
-import astronaut from "/astronaut.png";
+import html from "/html.webp";
+import css from "/css.webp";
+import js from "/js.webp";
+import node from "/nodejs.webp";
+import react from "/react.webp";
+import tailwind from "/tailwind.webp";
+import git from "/git.webp";
+import github from "/github.webp";
+import mysql from "/mysql.webp";
+import postman from "/postman.webp";
+import linux from "/linux.webp";
+import figma from "/figma.webp";
+import astronaut from "/astronaut.webp";
 
 export const skillsData = [
   {

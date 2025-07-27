@@ -4,9 +4,9 @@ import projects3 from "/project3.jpg";
 
 export const projects = [
     {
-      title: "NAJM Course API",
+      title: "HidroAkuaponik Agriculture",
       period: "2025-01-01 — 2025-04-30",
-      category: "Backend Application",
+      category: "",
       description:
         "Backend service for Computer-Assisted Test Platform with strong type-safety and Hexagonal architecture.",
       tags: ["Rust", "Axum", "SurrealDB", "Integration Testing", "Type Safety"],
