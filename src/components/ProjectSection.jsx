@@ -188,7 +188,7 @@ const ProjectSection = () => {
         </div>
         <div className="w-full mt-8 flex justify-center">
           <Link
-            to="/projects"
+            to="/"
             className="group inline-flex items-center gap-1 text-sm sm:text-base text-gray-300 hover:text-white transition-colors"
           >
             See more

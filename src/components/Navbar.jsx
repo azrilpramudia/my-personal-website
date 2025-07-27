@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,9 +60,13 @@ const Navbar = () => {
         </li>
       ))}
       {mobile && (
-        <button className="mt-4 font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200">
+        <Link
+          to="/hire-me"
+          className="mt-4 font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200"
+          onClick={() => setIsOpen(false)}
+        >
           Hire Me
-        </button>
+        </Link>
       )}
     </ul>
   );
@@ -87,9 +92,12 @@ const Navbar = () => {
       {/* Menu Items (Desktop) */}
       <div className="hidden md:flex items-center space-x-6">
         {renderNavLinks(false)}
-        <button className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200">
+        <Link
+          to="/hire-me"
+          className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200"
+        >
           Hire Me
-        </button>
+        </Link>
       </div>
 
       {/* Mobile Menu */}
