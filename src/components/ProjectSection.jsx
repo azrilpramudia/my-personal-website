@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { projects } from "../data/projectsData";
 import { Link } from "react-router-dom";
 
@@ -185,15 +185,18 @@ const ProjectSection = () => {
               </div>
             </div>
           ))}
-          {/* See More button here */}
-          <div className="mt-10 text-center">
-            <Link
-              to="/projects"
-              className="inline-block bg-white/10 hover:bg-white/20 border border-white text-white px-6 py-2 rounded-md font-medium transition duration-300"
-            >
-              See More
-            </Link>
-          </div>
+        </div>
+        <div className="w-full mt-8 flex justify-center">
+          <Link
+            to="/projects"
+            className="group inline-flex items-center gap-1 text-sm sm:text-base text-gray-300 hover:text-white transition-colors"
+          >
+            See more
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            />
+          </Link>
         </div>
       </div>
     </section>
