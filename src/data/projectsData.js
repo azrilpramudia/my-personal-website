@@ -1,44 +1,43 @@
 import projects1 from "/project1.png";
-import projects2 from "/project2.jpg";
-import projects3 from "/project3.jpg";
+import projects2 from "/project2.png";
 
 export const projects = [
     {
-      title: "HidroAkuaponik Agriculture",
-      period: "2025-01-01 — 2025-04-30",
-      category: "",
+      title: "MyBataku",
+      period: "2025-01-01 — Present",
+      category: "Web Application",
       description:
-        "Backend service for Computer-Assisted Test Platform with strong type-safety and Hexagonal architecture.",
-      tags: ["Rust", "Axum", "SurrealDB", "Integration Testing", "Type Safety"],
+        "MyBataku is a website platform that focuses on education and articles on learning the Batak language.",
+      tags: ["PostgreSql", "React", "Tailwind", "Go", "Vite"],
       featured: true,
-      liveDemo: "#",
-      github: "#",
+      liveDemo: "https://mybataku.my.id",
+      github: "https://github.com/azrilpramudia/mybataku-project",
       image: projects1,
     },
     {
-      title: "E-Learning Platform",
+      title: "HidroAkuaponik Agriculture",
       period: "2024-06-01 — 2024-12-31",
-      category: "Full Stack Application",
+      category: "Web Application",
       description:
-        "Modern e-learning platform with interactive courses, real-time chat, and progress tracking features.",
-      tags: ["React", "Node.js", "MongoDB", "Socket.io", "TypeScript"],
+        "HydroAkuaponik is a website platform that focuses on education and information related to sustainable agricultural learning.",
+      tags: ["MySQL", "Express", "React", "Node.js", "Tailwind CSS"],
       featured: false,
-      liveDemo: "#",
-      github: "#",
+      liveDemo: "https://hidroakuaponik.vercel.app",
+      github: "https://github.com/azrilpramudia/nineteen-hidro-akuaponik-massive-project",
       image: projects2,
     },
     {
-      title: "Task Management App",
+      title: "Notes App",
       period: "2024-03-01 — 2024-05-31",
-      category: "Frontend Application",
+      category: "Mobile Application",
       description:
-        "Intuitive task management application with drag-and-drop functionality and team collaboration features.",
-      tags: ["Vue.js", "Tailwind CSS", "Pinia", "Vite", "WebSockets"],
+        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+      tags: ["Express", "Node.js", "Flutter", "MySQL"],
       featured: false,
       liveDemo: "#",
-      github: "#",
-      image: projects3,
+      github: "https://github.com/azrilpramudia/notes-app-mobile",
+      image: "#",
     },
   ];
 
-  export {projects1, projects2, projects3};
+  export {projects1, projects2, };
