@@ -1,16 +1,18 @@
 import { Mail, Linkedin, Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export const HireMe = () => {
+const HireMe = () => {
   return (
     <section className="min-h-screen bg-primary text-white px-6 py-24 font-poppins flex flex-col items-center justify-center">
-      {/* Back Link */}
-      <div className="w-full max-w-5xl mb-8">
+      <div className="w-full mb-8 pl-4 sm:pl-6">
         <Link
           to="/"
-          className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition"
+          className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
         >
-          <ArrowLeft size={18} />
+          <ArrowLeft
+            size={18}
+            className="transition-transform duration-200 group-hover:-translate-x-1"
+          />
           Back to Home
         </Link>
       </div>
