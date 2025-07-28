@@ -1,16 +1,16 @@
-import html from "/html.webp";
-import css from "/css.webp";
-import js from "/js.webp";
-import node from "/nodejs.webp";
-import react from "/react.webp";
-import tailwind from "/tailwind.webp";
-import git from "/git.webp";
-import github from "/github.webp";
-import mysql from "/mysql.webp";
-import postman from "/postman.webp";
-import linux from "/linux.webp";
-import figma from "/figma.webp";
-import astronaut from "/astronaut.webp";
+import html from "../assets/skills/html.webp";
+import css from "../assets/skills/css.webp";
+import js from "../assets/skills/js.webp";
+import node from "../assets/skills/nodejs.webp";
+import react from "../assets/skills/react.webp";
+import tailwind from "../assets/skills/tailwind.webp";
+import git from "../assets/skills/git.webp";
+import github from "../assets/skills/github.webp";
+import mysql from "../assets/skills/mysql.webp";
+import postman from "../assets/skills/postman.webp";
+import linux from "../assets/skills/linux.webp";
+import figma from "../assets/skills/figma.webp";
+import astronaut from "../assets/astronaut.webp";
 
 export const skillsData = [
   {
