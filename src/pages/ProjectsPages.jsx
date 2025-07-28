@@ -1,97 +1,36 @@
-import { useEffect } from "react";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 import { projects } from "../data/projectsData";
 import { Link } from "react-router-dom";
 
-const ProjectSection = () => {
-  useEffect(() => {
-    const canvas = document.getElementById("project-section-star-canvas");
-    const section = document.querySelector('[data-section="project-section"]');
-    if (!canvas || !section) return;
-    const ctx = canvas.getContext("2d");
-
-    const updateCanvasSize = () => {
-      const width = section.offsetWidth;
-      const height = section.offsetHeight;
-      canvas.width = width;
-      canvas.height = height;
-      return { width, height };
-    };
-
-    let width = 0;
-    let height = 0;
-    let stars = [];
-
-    const initializeStars = () => {
-      ({ width, height } = updateCanvasSize());
-      stars = Array.from({ length: 150 }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.5,
-        alpha: Math.random(),
-        delta: Math.random() * 0.02,
-      }));
-    };
-
-    const drawStars = () => {
-      stars.forEach((star) => {
-        ctx.globalAlpha = star.alpha;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "white";
-        ctx.fill();
-        star.alpha += star.delta;
-        if (star.alpha <= 0 || star.alpha >= 1) star.delta = -star.delta;
-      });
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, width, height);
-      drawStars();
-      requestAnimationFrame(animate);
-    };
-
-    setTimeout(() => {
-      initializeStars();
-      animate();
-    }, 100);
-
-    const handleResize = () => {
-      initializeStars();
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+const ProjectsPages = () => {
   return (
-    <section
-      id="projects"
-      className="relative min-h-screen bg-secondary flex justify-center items-center p-6 sm:p-8 py-28 sm:py-36 font-poppins"
-      data-section="project-section"
-    >
-      {/* Background Stars */}
-      <canvas
-        id="project-section-star-canvas"
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
-      />
-
-      {/* Content */}
+    <section className="relative min-h-screen bg-primary flex justify-center items-center p-6 sm:p-8 py-28 sm:py-36 font-poppins">
       <div className="max-w-7xl w-full relative z-10">
+        <div className="w-full max-w-7xl mb-6 px-2 sm:px-0">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
+          >
+            <ArrowLeft
+              size={18}
+              className="transition-transform duration-200 group-hover:-translate-x-1"
+            />
+            Back to Home
+          </Link>
+        </div>
         <div className="text-center mb-12">
           <h1 className="text-white text-3xl md:text-4xl font-bold mb-4">
-            Projects
+            All My Projects
           </h1>
           <p className="text-gray-400 text-base sm:text-lg">
             A collection of my recent work and experiments
           </p>
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative bg-secondary rounded-2xl overflow-hidden border border-white/30 backdrop-blur-sm hover:border-white/50 transition-all duration-300 hover:transform hover:-translate-y-1 flex flex-col h-full shadow-lg shadow-white/10 hover:shadow-white/20 ring-1 ring-white/10 hover:ring-white/20"
+              className="relative bg-primary rounded-2xl overflow-hidden border border-white/30 backdrop-blur-sm hover:border-white/50 transition-all duration-300 hover:transform hover:-translate-y-1 flex flex-col h-full shadow-lg shadow-white/10 hover:shadow-white/20 ring-1 ring-white/10 hover:ring-white/20"
             >
               {/* Project Image */}
               <div className="relative h-48 sm:h-52 md:h-56 overflow-hidden">
@@ -173,7 +112,7 @@ const ProjectSection = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-secondary hover:bg-gray-600 border border-gray-200/20 text-white 
+                      className="flex-1 bg-primary hover:bg-gray-600 border border-gray-200/20 text-white 
                  text-sm py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center 
                  justify-center gap-2 min-h-[40px]"
                     >
@@ -186,21 +125,9 @@ const ProjectSection = () => {
             </div>
           ))}
         </div>
-        <div className="w-full mt-8 flex justify-center">
-          <Link
-            to="/projects"
-            className="group inline-flex items-center gap-1 text-sm sm:text-base text-gray-300 hover:text-white transition-colors"
-          >
-            See more
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-200 group-hover:translate-x-1"
-            />
-          </Link>
-        </div>
       </div>
     </section>
   );
 };
 
-export default ProjectSection;
+export default ProjectsPages;
