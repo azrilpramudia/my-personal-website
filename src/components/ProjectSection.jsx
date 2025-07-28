@@ -4,6 +4,8 @@ import { projects } from "../data/projectsData";
 import { Link } from "react-router-dom";
 
 const ProjectSection = () => {
+  const displayedProjects = projects.slice(0, 6);
+
   useEffect(() => {
     const canvas = document.getElementById("project-section-star-canvas");
     const section = document.querySelector('[data-section="project-section"]');
@@ -88,7 +90,7 @@ const ProjectSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <div
               key={index}
               className="relative bg-secondary rounded-2xl overflow-hidden border border-white/30 backdrop-blur-sm hover:border-white/50 transition-all duration-300 hover:transform hover:-translate-y-1 flex flex-col h-full shadow-lg shadow-white/10 hover:shadow-white/20 ring-1 ring-white/10 hover:ring-white/20"
@@ -186,6 +188,8 @@ const ProjectSection = () => {
             </div>
           ))}
         </div>
+
+        {/* See More */}
         <div className="w-full mt-8 flex justify-center">
           <Link
             to="/projects"

@@ -7,6 +7,7 @@ const ProjectsPages = () => {
     <section className="relative min-h-screen bg-primary flex justify-center items-center p-6 sm:p-8 py-28 sm:py-36 font-poppins">
       <div className="max-w-7xl w-full relative z-10">
         <div className="w-full max-w-7xl mb-6 px-2 sm:px-0">
+          {/* Back to Home */}
           <Link
             to="/"
             className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"

@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
+import profilImg from "../assets/cat.jpg";
 
 const HomeSection = () => {
   return (
@@ -10,7 +11,7 @@ const HomeSection = () => {
     >
       {/* Profile Image */}
       <img
-        src="/profile.jpg"
+        src={profilImg}
         alt="Profile"
         className="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full object-cover mb-6 border-4 border-white shadow-lg"
       />
