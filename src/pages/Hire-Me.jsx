@@ -21,7 +21,7 @@ export const HireMe = () => {
       </h1>
       <p className="text-gray-300 max-w-2xl text-center mb-12">
         I'am <span className="text-purple-400 font-semibold">currently</span>{" "}
-        ooking for new opportunities, let's discuss, collaborate, and help with
+        looking for new opportunities, let's discuss, collaborate, and help with
         your project.
       </p>
 
@@ -46,7 +46,7 @@ export const HireMe = () => {
             </li>
             <li>
               <strong>• Internship:</strong> I am open to internships with roles
-              as a frontend developer
+              as a frontend developer & web development
             </li>
           </ul>
         </div>
@@ -58,15 +58,17 @@ export const HireMe = () => {
           </h2>
           <div className="text-sm sm:text-base space-y-3">
             <div>
-              <strong>Frontend Skills:</strong> React, JavaScript, TailwindCSS,
-              HTML, & CSS
+              <strong>Frontend Skills:</strong> HTML, CSS, JavaScript, React, &
+              TailwindCSS
             </div>
             <div>
-              <strong>Architecture:</strong> Micro-frontends, Design Systems,
-              Performance
+              <strong>Experience:</strong> 3 months of experience in frontend
+              using React, Vite, & TailwindCSS tech stack.
             </div>
             <div>
-              <strong>Experience:</strong>
+              <strong>Learning:</strong> I am currently focusing on developing
+              my skills by learning Tech Stack React, Vue.js, TailwindCSS, &
+              Express.
             </div>
           </div>
         </div>
@@ -78,9 +80,8 @@ export const HireMe = () => {
           Let’s Start a Conversation
         </h3>
         <p className="text-gray-300 text-sm sm:text-base mb-6">
-          Whether you're a startup looking to build from scratch or an
-          enterprise needing to scale, I'm here to help. Let’s discuss your
-          project requirements.
+          Let's Start a Conversation Whether you're a startup or a large
+          corporation, I'm ready to help and collaborate with you.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
