@@ -118,10 +118,16 @@ const ProjectSection = () => {
                   <h3 className="text-white text-lg sm:text-xl font-semibold mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-3">{project.period}</p>
-                  <span className="inline-block bg-blue-400/20 text-white text-xs px-3 py-1 rounded-full">
-                    {project.category}
-                  </span>
+                  {project.hasPeriod && (
+                    <p className="text-gray-400 text-sm mb-3">
+                      {project.period}
+                    </p>
+                  )}
+                  {project.hasCategory && (
+                    <span className="inline-block bg-blue-400/20 text-white text-xs px-3 py-1 rounded-full">
+                      {project.category}
+                    </span>
+                  )}
                 </div>
 
                 <p className="text-white text-sm leading-relaxed mb-6 flex-1">
