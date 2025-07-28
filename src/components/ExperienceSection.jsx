@@ -1,7 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { experienceData } from "../data/experienceData";
-import { useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 const ExperienceSection = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   useEffect(() => {
     const canvas = document.getElementById("exp-star-canvas");
     const section = canvas?.parentElement;
@@ -68,6 +78,7 @@ const ExperienceSection = () => {
       id="experience"
       className="relative bg-secondary text-white py-20 px-4 sm:px-6 md:px-10 font-poppins overflow-hidden"
     >
+      {/* Background Stars */}
       <canvas
         id="exp-star-canvas"
         className="absolute inset-0 w-full h-full z-0"
@@ -77,9 +88,12 @@ const ExperienceSection = () => {
         Experience
       </h1>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Vertical Line */}
-        <div className="absolute top-0 left-4 w-0.5 h-full bg-gradient-to-b from-gray-700 via-gray-800 to-gray-700 shadow-[0_0_10px_rgba(100,100,255,0.2)] z-0" />
+      <div ref={containerRef} className="max-w-6xl mx-auto relative z-10">
+        {/* Animated Vertical Line */}
+        <motion.div
+          className="absolute left-4 top-0 w-0.5 bg-blue-500 origin-top"
+          style={{ height: "100%", scaleY }}
+        />
 
         <div className="flex flex-col gap-20">
           {experienceData.map((exp, index) => (
@@ -88,8 +102,8 @@ const ExperienceSection = () => {
               className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start relative"
             >
               {/* Bullet */}
-              <div className="absolute left-4 top-3 transform -translate-x-1/2 w-6 h-6 rounded-full bg-secondary border border-gray-600 shadow-[0_0_8px_rgba(100,100,255,0.2)] flex items-center justify-center z-20">
-                <div className="w-2.5 h-2.5 rounded-full bg-transparent border border-gray-400" />
+              <div className="absolute left-4 top-3 transform -translate-x-1/2 w-6 h-6 rounded-full bg-secondary border border-blue-500 flex items-center justify-center z-20">
+                <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
               </div>
 
               {/* Left Side - Desktop */}
