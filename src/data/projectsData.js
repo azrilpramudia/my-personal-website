@@ -1,14 +1,18 @@
-import projects1 from "/project1.png";
-import projects2 from "/project2.png";
+import projects1 from "../assets/projects/project1.webp";
+import projects2 from "../assets/projects/project2.webp";
+import projects3 from "../assets/projects/project3.webp";
+import projects4 from "../assets/projects/project4.webp";
 
 export const projects = [
     {
       title: "MyBataku",
+      hasPeriod: true,
       period: "2025-01-01 — Present",
+      hasCategory: true,
       category: "Web Application",
       description:
         "MyBataku is a website platform that focuses on education and articles on learning the Batak language.",
-      tags: ["PostgreSql", "React", "Tailwind", "Go", "Vite"],
+      tags: ["PostgreSql", "React", "Tailwind CSS", "Go", "Vite"],
       featured: true,
       hasLiveDemo: true,
       hasGithub: true,
@@ -18,7 +22,9 @@ export const projects = [
     },
     {
       title: "HidroAkuaponik Agriculture",
-      period: "2024-06-01 — 2024-12-31",
+      hasPeriod: true,
+      period: "2024-11-13 — 2024-12-28",
+      hasCategory: true,
       category: "Web Application",
       description:
         "HydroAkuaponik is a website platform that focuses on education and information related to sustainable agricultural learning.",
@@ -32,7 +38,9 @@ export const projects = [
     },
     {
       title: "Notes App",
-      period: "2024-03-01 — 2024-05-31",
+      hasPeriod: true,
+      period: "2025-06-28 — 2024-07-18",
+      hasCategory: true,
       category: "Mobile Application",
       description:
         "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
@@ -44,6 +52,54 @@ export const projects = [
       github: "https://github.com/azrilpramudia/notes-app-mobile",
       image: "#",
     },
+    {
+      title: "Simple To-do List App",
+      hasPeriod: false,
+      period: "",
+      hasCategory: false,
+      category: "",
+      description:
+        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+      tags: ["React", "Tailwind CSS"],
+      featured: false,
+      hasLiveDemo: false,
+      hasGithub: true,
+      liveDemo: "#",
+      github: "https://github.com/azrilpramudia/todo-app-reactjs",
+      image: projects3,
+    },
+    {
+      title: "My Personal Web",
+      hasPeriod: false,
+      period: "",
+      hasCategory: true,
+      category: "Web Application",
+      description:
+        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+      tags: ["React", "Tailwind CSS", "Framer Motion"],
+      featured: false,
+      hasLiveDemo: true,
+      hasGithub: true,
+      liveDemo: "https://itsmeow.tech",
+      github: "https://github.com/azrilpramudia/my-personal-website",
+      image: projects4,
+    },
+    {
+      title: "Uninus Himatif Website",
+      hasPeriod: false,
+      period: "",
+      hasCategory: true,
+      category: "Web Application",
+      description:
+        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+      tags: ["React", "Tailwind CSS", "TypeScript"],
+      featured: false,
+      hasLiveDemo: true,
+      hasGithub: false,
+      liveDemo: "https://uninus-himatif.vercel.app",
+      github: "",
+      image: false,
+    },
   ];
 
-  export {projects1, projects2, };
+  export {projects1, projects2, projects3, projects4};
