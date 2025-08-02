@@ -102,7 +102,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-[72px] left-0 w-full bg-primary text-white shadow-lg md:hidden z-50 px-6 py-4">
+        <div className="absolute top-[65px] left-0 w-full bg-primary text-white shadow-lg md:hidden z-50 px-6 py-4">
           {renderNavLinks(true)}
         </div>
       )}
