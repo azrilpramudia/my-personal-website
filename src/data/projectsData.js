@@ -59,7 +59,7 @@ export const projects = [
       hasCategory: false,
       category: "",
       description:
-        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+        "A lightweight and user-friendly To-do List application built with React, Vite, and Tailwind CSS. This app allows users to manage daily tasks efficiently with a clean and minimal UI.",
       tags: ["React", "Tailwind CSS"],
       featured: false,
       hasLiveDemo: false,
@@ -75,7 +75,7 @@ export const projects = [
       hasCategory: true,
       category: "Web Application",
       description:
-        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+        "A modern and responsive personal portfolio website built using React, Vite, and Tailwind CSS. This website showcases my profile, skills, experiences, and projects as a web developer.",
       tags: ["React", "Tailwind CSS", "Framer Motion"],
       featured: false,
       hasLiveDemo: true,
@@ -91,7 +91,7 @@ export const projects = [
       hasCategory: true,
       category: "Web Application",
       description:
-        "Notes App is a mobile application developed using Express for the backend and Flutter for the frontend. This application is used to create important notes, daily activities, cooking recipes and much more.",
+        "Uninus Himatif website is the website of the Uninus Informatics Engineering Student Association. This website focuses on education, information, galleries and organizational structure.",
       tags: ["React", "Tailwind CSS", "TypeScript"],
       featured: false,
       hasLiveDemo: true,
