@@ -4,10 +4,8 @@ export const experienceData = [
     company: "IMPHNEN",
     date: "Des 2024 – Present",
     descriptions: [
-      "Collaborated with QA and Backend teams to ensure timely project completion.",
-      "Developed a New Student Admission website utilizing Next.js technology.",
-      "Implemented reusable components using Tailwind CSS.",
-      "Applied Atomic Design principles and Nx Monorepo for efficient development.",
+      "Scoll Facebook in Community Grup",
+      "Popular Contributor 2024 for Posting JavaScript Memes",
     ],
   },
   {
