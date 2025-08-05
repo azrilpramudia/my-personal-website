@@ -72,37 +72,39 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-primary text-white px-6 md:px-12 py-4 shadow-md flex justify-between items-center fixed w-full z-50">
-      {/* Logo */}
-      <a
-        href="#home"
-        className="text-2xl font-bold font-poppins cursor-pointer text-white"
-      >
-        <span>Its</span>
-        <span>Meow.</span>
-      </a>
-
-      {/* Hamburger Icon (Mobile) */}
-      <div className="md:hidden">
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Menu Items (Desktop) */}
-      <div className="hidden md:flex items-center space-x-6">
-        {renderNavLinks(false)}
-        <Link
-          to="/hire-me"
-          className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200"
+    <nav className="bg-primary/80 backdrop-blur-md border-b border-white/10 text-white py-4 shadow-md fixed w-full z-50">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        {/* Logo */}
+        <a
+          href="#home"
+          className="text-2xl font-bold font-poppins cursor-pointer text-white"
         >
-          Hire Me
-        </Link>
+          <span>Its</span>
+          <span>Meow.</span>
+        </a>
+
+        {/* Hamburger Icon (Mobile) */}
+        <div className="md:hidden">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Menu Items (Desktop) */}
+        <div className="hidden md:flex items-center space-x-6">
+          {renderNavLinks(false)}
+          <Link
+            to="/hire-me"
+            className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200"
+          >
+            Hire Me
+          </Link>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-[65px] left-0 w-full bg-primary text-white shadow-lg md:hidden z-50 px-6 py-4">
+        <div className="absolute top-[65px] left-0 w-full bg-primary/80 backdrop-blur-md border-t border-white/10 text-white shadow-lg md:hidden z-50 px-6 py-4">
           {renderNavLinks(true)}
         </div>
       )}
