@@ -2,6 +2,7 @@ import projects1 from "../assets/projects/project1.webp";
 import projects2 from "../assets/projects/project2.webp";
 import projects3 from "../assets/projects/project3.webp";
 import projects4 from "../assets/projects/project4.webp";
+import projects5 from "../assets/projects/project5.webp"
 
 export const projects = [
     {
@@ -50,7 +51,7 @@ export const projects = [
       hasGithub: true,
       liveDemo: "#",
       github: "https://github.com/azrilpramudia/notes-app-mobile",
-      image: "#",
+      image: projects5,
     },
     {
       title: "Simple To-do List App",
@@ -102,4 +103,4 @@ export const projects = [
     },
   ];
 
-  export {projects1, projects2, projects3, projects4};
+  export {projects1, projects2, projects3, projects4, projects5};
