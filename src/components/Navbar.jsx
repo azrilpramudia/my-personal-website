@@ -103,11 +103,17 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-[65px] left-0 w-full bg-primary/80 backdrop-blur-md border-t border-white/10 text-white shadow-lg md:hidden z-50 px-6 py-4">
-          {renderNavLinks(true)}
-        </div>
-      )}
+      <div
+        className={`absolute top-[65px] left-0 w-full bg-primary/80 backdrop-blur-md border-t border-white/10 text-white shadow-lg md:hidden z-50 px-6 py-4 transform transition-all duration-300 ease-in-out
+    ${
+      isOpen
+        ? "opacity-100 translate-y-0 pointer-events-auto"
+        : "opacity-0 -translate-y-4 pointer-events-none"
+    }
+  `}
+      >
+        {renderNavLinks(true)}
+      </div>
     </nav>
   );
 };
