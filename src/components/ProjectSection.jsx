@@ -9,7 +9,6 @@ const ProjectSection = () => {
   const displayedProjects = projects.slice(0, 6);
   const prefersReducedMotion = useReducedMotion();
 
-  // Variants animasi (menyesuaikan reduced motion)
   const variants = useMemo(() => {
     if (prefersReducedMotion) {
       return {
