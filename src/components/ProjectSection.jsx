@@ -1,10 +1,45 @@
-import { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect, useMemo } from "react";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { projects } from "../data/projectsData";
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 
 const ProjectSection = () => {
   const displayedProjects = projects.slice(0, 6);
+  const prefersReducedMotion = useReducedMotion();
+
+  // Variants animasi (menyesuaikan reduced motion)
+  const variants = useMemo(() => {
+    if (prefersReducedMotion) {
+      return {
+        container: {
+          hidden: {},
+          show: { transition: { staggerChildren: 0.08 } },
+        },
+        item: { hidden: {}, show: {} },
+      };
+    }
+    return {
+      container: {
+        hidden: { opacity: 0, y: 12 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.1 },
+        },
+      },
+      item: {
+        hidden: { opacity: 0, y: 14, scale: 0.98 },
+        show: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { duration: 0.45, ease: "easeOut" },
+        },
+      },
+    };
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     const canvas = document.getElementById("project-section-star-canvas");
@@ -80,19 +115,38 @@ const ProjectSection = () => {
 
       {/* Content */}
       <div className="max-w-7xl w-full relative z-10">
-        <div className="text-center mb-12">
-          <h1 className="text-white text-3xl md:text-4xl font-bold mb-4">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={variants.container}
+          className="text-center mb-12"
+        >
+          <motion.h1
+            variants={variants.item}
+            className="text-white text-3xl md:text-4xl font-bold mb-4"
+          >
             Projects
-          </h1>
-          <p className="text-gray-400 text-base sm:text-lg">
+          </motion.h1>
+          <motion.p
+            variants={variants.item}
+            className="text-gray-400 text-base sm:text-lg"
+          >
             A collection of my recent work and experiments
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={variants.container}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {displayedProjects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={variants.item}
               className="relative bg-secondary rounded-2xl overflow-hidden border border-white/30 backdrop-blur-sm hover:border-white/50 transition-all duration-300 hover:transform hover:-translate-y-1 flex flex-col h-full shadow-lg shadow-white/10 hover:shadow-white/20 ring-1 ring-white/10 hover:ring-white/20"
             >
               {/* Project Image */}
@@ -191,12 +245,22 @@ const ProjectSection = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* See More */}
-        <div className="w-full mt-8 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: 0.4,
+            ease: "easeOut",
+            delay: prefersReducedMotion ? 0 : 0.1,
+          }}
+          className="w-full mt-8 flex justify-center"
+        >
           <Link
             to="/projects"
             className="group inline-flex items-center gap-1 text-sm sm:text-base text-gray-300 hover:text-white transition-colors"
@@ -207,7 +271,7 @@ const ProjectSection = () => {
               className="transition-transform duration-200 group-hover:translate-x-1"
             />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
