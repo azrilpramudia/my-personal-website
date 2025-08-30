@@ -33,7 +33,7 @@ responsive layout for all devices.
 - with SSH
 
    ``` bash
-    git clone git:github.com//username/repository.git
+    git clone git@github.com:username/repository.git
     cd repository
     ```
 
