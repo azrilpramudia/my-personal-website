@@ -1,38 +1,100 @@
+/* eslint-disable no-unused-vars */
 import { Mail, Linkedin, Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 
 const HireMe = () => {
+  const prefersReducedMotion = useReducedMotion();
+
+  const containerVariants = prefersReducedMotion
+    ? {
+        hidden: {},
+        show: { transition: { staggerChildren: 0.12 } },
+      }
+    : {
+        hidden: { opacity: 0, y: 10 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.12 },
+        },
+      };
+
+  const itemVariants = prefersReducedMotion
+    ? { hidden: {}, show: {} }
+    : {
+        hidden: { opacity: 0, y: 8 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.45, ease: "easeOut" },
+        },
+      };
+
   return (
     <section className="min-h-screen bg-primary text-white px-6 py-24 font-poppins flex flex-col items-center justify-center">
-      <div className="w-full mb-8 pl-4 sm:pl-6">
-        <Link
-          to="/"
-          className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
+      {/* Back to Home */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={containerVariants}
+        className="w-full mb-8 pl-4 sm:pl-6"
+      >
+        <motion.div variants={itemVariants}>
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
+          >
+            <ArrowLeft
+              size={18}
+              className="transition-transform duration-200 group-hover:-translate-x-1"
+            />
+            Back to Home
+          </Link>
+        </motion.div>
+      </motion.div>
+
+      {/* Title + Subtitle */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={containerVariants}
+        className="flex flex-col items-center"
+      >
+        <motion.h1
+          variants={itemVariants}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center"
         >
-          <ArrowLeft
-            size={18}
-            className="transition-transform duration-200 group-hover:-translate-x-1"
-          />
-          Back to Home
-        </Link>
-      </div>
+          Ready to Hire Me?
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-300 max-w-2xl text-center mb-12"
+        >
+          I&apos;am{" "}
+          <span className="text-purple-400 font-semibold">currently</span>{" "}
+          looking for new opportunities, let&apos;s discuss, collaborate, and
+          help with your project.
+        </motion.p>
+      </motion.div>
 
-      {/* Title */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center">
-        Ready to Hire Me?
-      </h1>
-      <p className="text-gray-300 max-w-2xl text-center mb-12">
-        I'am <span className="text-purple-400 font-semibold">currently</span>{" "}
-        looking for new opportunities, let's discuss, collaborate, and help with
-        your project.
-      </p>
-
-      {/* Sections: What I'm Looking For & Expertise */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-12">
+      {/* What I'm Looking For & Expertise */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.35 }}
+        variants={containerVariants}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-12"
+      >
         {/* Left Section */}
-        <div className="bg-primary border border-white rounded-lg p-6 shadow-lg">
+        <motion.div
+          variants={itemVariants}
+          className="bg-primary border border-white rounded-lg p-6 shadow-lg"
+        >
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            🎯 What I'm Looking For
+            🎯 What I&apos;m Looking For
           </h2>
           <ul className="space-y-3 text-sm sm:text-base">
             <li>
@@ -48,44 +110,62 @@ const HireMe = () => {
             </li>
             <li>
               <strong>• Internship:</strong> I am open to internships with roles
-              as a frontend developer & web development
+              as a frontend developer &amp; web development
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Right Section */}
-        <div className="bg-primary border border-white rounded-lg p-6 shadow-lg">
+        <motion.div
+          variants={itemVariants}
+          className="bg-primary border border-white rounded-lg p-6 shadow-lg"
+        >
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
             🧠 My Expertise for Beginner Frontend Developer
           </h2>
           <div className="text-sm sm:text-base space-y-3">
             <div>
-              <strong>Frontend Skills:</strong> HTML, CSS, JavaScript, React, &
-              TailwindCSS
+              <strong>Frontend Skills:</strong> HTML, CSS, JavaScript, React,
+              &amp; TailwindCSS
             </div>
             <div>
               <strong>Experience:</strong> 3 months of experience in frontend
-              using React, Vite, & TailwindCSS tech stack.
+              using React, Vite, &amp; TailwindCSS tech stack.
             </div>
             <div>
               <strong>Learning:</strong> I am currently focusing on developing
-              my skills by learning Tech Stack React, Vue.js, TailwindCSS, &
+              my skills by learning Tech Stack React, Vue.js, TailwindCSS, &amp;
               Express.
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Call to Action */}
-      <div className="bg-primary border border-white rounded-lg p-6 shadow-lg w-full max-w-4xl text-center">
-        <h3 className="text-xl font-semibold mb-3">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.35 }}
+        variants={containerVariants}
+        className="bg-primary border border-white rounded-lg p-6 shadow-lg w-full max-w-4xl text-center"
+      >
+        <motion.h3
+          variants={itemVariants}
+          className="text-xl font-semibold mb-3"
+        >
           Let’s Start a Conversation
-        </h3>
-        <p className="text-gray-300 text-sm sm:text-base mb-6">
-          Let's Start a Conversation Whether you're a startup or a large
-          corporation, I'm ready to help and collaborate with you.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        </motion.h3>
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-300 text-sm sm:text-base mb-6"
+        >
+          Let&apos;s Start a Conversation Whether you&apos;re a startup or a
+          large corporation, I&apos;m ready to help and collaborate with you.
+        </motion.p>
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
           <a
             href="mailto:you@example.com"
             className="bg-primary border border-red-600 hover:bg-red-700 text-white text-sm px-6 py-2 rounded-md flex items-center justify-center gap-2 transition"
@@ -107,8 +187,8 @@ const HireMe = () => {
           >
             <Download size={16} /> Download Resume
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
