@@ -22,19 +22,28 @@ responsive layout for all devices.
 ## 🚀 How to Run
 
 1.  Clone the repository:
+   
+- with HTTPS
 
     ``` bash
-    git clone git@github.com:azrilpramudia/my-personal-website.git
+    git clone https:github.com//username/repository.git
+    cd repository
+    ```
+    
+- with SSH
+
+   ``` bash
+    git clone git:github.com//username/repository.git
     cd repository
     ```
 
-2.  Install dependencies:
+3.  Install dependencies:
 
     ``` bash
     npm install
     ```
 
-3.  Start the development server:
+4.  Start the development server:
 
     ``` bash
     npm run dev
