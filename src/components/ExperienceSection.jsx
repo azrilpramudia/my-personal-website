@@ -19,6 +19,20 @@ const ExperienceSection = () => {
   const nodeRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const headerVariants = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.12 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 8 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  };
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -166,9 +180,19 @@ const ExperienceSection = () => {
         className="absolute inset-0 w-full h-full z-0"
       />
 
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-16 z-10 relative">
-        Experience
-      </h1>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.6 }}
+        variants={headerVariants}
+      >
+        <motion.h1
+          variants={itemVariants}
+          className="text-3xl md:text-4xl font-bold text-center mb-16 z-10 relative"
+        >
+          Experience
+        </motion.h1>
+      </motion.div>
 
       <div ref={containerRef} className="max-w-6xl mx-auto relative z-10">
         {/* Vertical Line (gradient + mask) */}
