@@ -89,11 +89,24 @@ const ExperienceSection = () => {
       </h1>
 
       <div ref={containerRef} className="max-w-6xl mx-auto relative z-10">
-        {/* Animated Vertical Line */}
-        <motion.div
-          className="absolute left-4 top-0 w-0.5 bg-blue-500 origin-top"
-          style={{ height: "100%", scaleY }}
-        />
+        {/* Animated Vertical Line — gradient + masked + progress */}
+        <div
+          className="pointer-events-none absolute left-4 top-0 h-full overflow-hidden w-[2px]
+                     bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))]
+                     from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]
+                     [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+        >
+          <motion.div
+            className="absolute inset-x-0 top-0 w-[2px]
+                       bg-gradient-to-t from-purple-500 via-blue-500 to-transparent
+                       from-[0%] via-[10%] rounded-full origin-top"
+            style={{ height: "100%", scaleY }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          />
+        </div>
 
         <div className="flex flex-col gap-20">
           {experienceData.map((exp, index) => (
