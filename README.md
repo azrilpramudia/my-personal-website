@@ -24,7 +24,7 @@ responsive layout for all devices.
 1.  Clone the repository:
 
     ``` bash
-    git clone https://github.com/username/repository.git
+    git clone git@github.com:azrilpramudia/my-personal-website.git
     cd repository
     ```
 
