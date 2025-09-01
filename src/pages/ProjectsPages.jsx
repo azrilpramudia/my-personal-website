@@ -1,35 +1,98 @@
+/* eslint-disable no-unused-vars */
+import { useEffect } from "react";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 import { projects } from "../data/projectsData";
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 
 const ProjectsPages = () => {
+  const prefersReducedMotion = useReducedMotion();
+
+  // Reset Scroll
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
+  const containerVariants = prefersReducedMotion
+    ? { hidden: {}, show: { transition: { staggerChildren: 0.12 } } }
+    : {
+        hidden: { opacity: 0, y: 10 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.12 },
+        },
+      };
+
+  const itemVariants = prefersReducedMotion
+    ? { hidden: {}, show: {} }
+    : {
+        hidden: { opacity: 0, y: 8 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.45, ease: "easeOut" },
+        },
+      };
+
   return (
     <section className="relative min-h-screen bg-primary flex justify-center items-center p-6 sm:p-8 py-28 sm:py-36 font-poppins">
       <div className="max-w-7xl w-full relative z-10">
-        <div className="w-full max-w-7xl mb-6 px-2 sm:px-0">
-          {/* Back to Home */}
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
+        {/* Back to Home (fade) */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={containerVariants}
+          className="w-full max-w-7xl mb-6 px-2 sm:px-0"
+        >
+          <motion.div variants={itemVariants}>
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
+            >
+              <ArrowLeft
+                size={18}
+                className="transition-transform duration-200 group-hover:-translate-x-1"
+              />
+              Back to Home
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* Header (Fade + Stagger)*/}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={containerVariants}
+          className="text-center mb-12"
+        >
+          <motion.h1
+            variants={itemVariants}
+            className="text-white text-3xl md:text-4xl font-bold mb-4"
           >
-            <ArrowLeft
-              size={18}
-              className="transition-transform duration-200 group-hover:-translate-x-1"
-            />
-            Back to Home
-          </Link>
-        </div>
-        <div className="text-center mb-12">
-          <h1 className="text-white text-3xl md:text-4xl font-bold mb-4">
             All My Projects
-          </h1>
-          <p className="text-gray-400 text-base sm:text-lg">
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-gray-400 text-base sm:text-lg"
+          >
             A collection of my recent work and experiments
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          </motion.p>
+        </motion.div>
+
+        {/* Grid (stagger children) */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
+              variants={itemVariants}
               key={index}
               className="relative bg-primary rounded-2xl overflow-hidden border border-white/30 backdrop-blur-sm hover:border-white/50 transition-all duration-300 hover:transform hover:-translate-y-1 flex flex-col h-full shadow-lg shadow-white/10 hover:shadow-white/20 ring-1 ring-white/10 hover:ring-white/20"
             >
@@ -131,9 +194,9 @@ const ProjectsPages = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

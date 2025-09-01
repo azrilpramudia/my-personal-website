@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
+import { useEffect } from "react";
 import { Mail, Linkedin, Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 
 const HireMe = () => {
   const prefersReducedMotion = useReducedMotion();
+
+  // Reset scroll
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" }); // bisa ganti "auto" -> "smooth"
+  }, []);
 
   const containerVariants = prefersReducedMotion
     ? {
@@ -167,7 +173,7 @@ const HireMe = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="mailto:you@example.com"
+            href="mailto:azrilpramudia01@gmail.com"
             className="bg-primary border border-red-600 hover:bg-red-700 text-white text-sm px-6 py-2 rounded-md flex items-center justify-center gap-2 transition"
           >
             <Mail size={16} /> Email Me
