@@ -7,7 +7,7 @@ import { motion, useReducedMotion } from "framer-motion";
 const HireMe = () => {
   const prefersReducedMotion = useReducedMotion();
 
-  // Reset scroll
+  // Scroll to top
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" }); // bisa ganti "auto" -> "smooth"
   }, []);

@@ -8,7 +8,7 @@ import { motion, useReducedMotion } from "framer-motion";
 const ProjectsPages = () => {
   const prefersReducedMotion = useReducedMotion();
 
-  // Reset Scroll
+  // Scroll to top
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
