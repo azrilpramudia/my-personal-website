@@ -52,6 +52,11 @@ const ProjectsPages = () => {
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-1">
+                {/* Title */}
+                <h3 className="text-white text-lg sm:text-xl font-semibold mb-2">
+                  {project.title ?? project.name ?? "Untitled Project"}
+                </h3>
+
                 <div className="mb-4">
                   {project.hasPeriod && (
                     <p className="text-gray-400 text-sm mb-3">
