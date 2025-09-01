@@ -62,7 +62,7 @@ const Navbar = () => {
       {mobile && (
         <Link
           to="/hire-me"
-          className="mt-4 font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200"
+          className="mt-4 font-poppins text-blue-500 text-sm px-4 py-2 rounded-md border border-blue-800 bg-blue-900/20 hover:bg-blue-800/30 shadow-md shadow-blue-900/30 transition duration-200"
           onClick={() => setIsOpen(false)}
         >
           Hire Me
@@ -95,7 +95,7 @@ const Navbar = () => {
           {renderNavLinks(false)}
           <Link
             to="/hire-me"
-            className="font-poppins text-red-500 text-sm px-4 py-2 rounded-md border border-red-800 bg-red-900/20 hover:bg-red-800/30 shadow-md shadow-red-900/30 transition duration-200"
+            className="font-poppins text-blue-500 text-sm px-4 py-2 rounded-md border border-blue-800 bg-blue-900/20 hover:bg-blue-800/30 shadow-md shadow-blue-900/30 transition duration-200"
           >
             Hire Me
           </Link>

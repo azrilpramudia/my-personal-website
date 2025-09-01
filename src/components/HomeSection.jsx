@@ -82,7 +82,7 @@ const HomeSection = () => {
         <a
           href="/My Personal CV.pdf"
           download
-          className="bg-red-900/30 border border-red-700 text-red-400 px-4 py-3 rounded-md font-poppins text-sm sm:text-base hover:bg-red-800/50 shadow-[0_0_15px_rgba(255,0,0,0.5)] transition"
+          className="bg-blue-900/30 border border-blue-700 text-blue-400 px-4 py-3 rounded-md font-poppins text-sm sm:text-base hover:bg-blue-800/50 shadow-[0_0_15px_rgba(59,130,246,0.5)] transition"
         >
           Download Resume
         </a>
