@@ -10,7 +10,7 @@ const ProjectsPages = () => {
 
   // Scroll to top
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
 
   const containerVariants = prefersReducedMotion
@@ -61,7 +61,7 @@ const ProjectsPages = () => {
           </motion.div>
         </motion.div>
 
-        {/* Header (Fade + Stagger)*/}
+        {/* Header (Fade + Stagger) */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -83,14 +83,23 @@ const ProjectsPages = () => {
           </motion.p>
         </motion.div>
 
-        {/* Grid (stagger children) */}
+        {/* Grid */}
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.05, margin: "-15% 0px -10% 0px" }}
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
+          {projects.length === 0 && (
+            <motion.p
+              variants={itemVariants}
+              className="col-span-full text-center text-gray-400"
+            >
+              No projects yet.
+            </motion.p>
+          )}
+
           {projects.map((project, index) => (
             <motion.div
               variants={itemVariants}
