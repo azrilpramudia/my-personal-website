@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 import { projects } from "../data/projectsData";
-import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 
 const ProjectsPages = () => {
@@ -47,8 +47,9 @@ const ProjectsPages = () => {
           className="w-full max-w-7xl mb-6 px-2 sm:px-0"
         >
           <motion.div variants={itemVariants}>
-            <Link
-              to="/"
+            <HashLink
+              smooth
+              to="/#projects"
               className="flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition group"
             >
               <ArrowLeft
@@ -56,7 +57,7 @@ const ProjectsPages = () => {
                 className="transition-transform duration-200 group-hover:-translate-x-1"
               />
               Back to Home
-            </Link>
+            </HashLink>
           </motion.div>
         </motion.div>
 
