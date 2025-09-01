@@ -10,7 +10,7 @@ const ProjectsPages = () => {
 
   // Scroll to top
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   const containerVariants = prefersReducedMotion
