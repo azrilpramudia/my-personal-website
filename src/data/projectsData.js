@@ -71,22 +71,6 @@ export const projects = [
       image: projects3,
     },
     {
-      title: "My Personal Web",
-      hasPeriod: false,
-      period: "",
-      hasCategory: true,
-      category: "Web Application",
-      description:
-        "A modern and responsive personal portfolio website built using React, Vite, and Tailwind CSS. This website showcases my profile, skills, experiences, and projects as a web developer.",
-      tags: ["React", "Tailwind CSS", "Framer Motion"],
-      featured: false,
-      hasLiveDemo: true,
-      hasGithub: true,
-      liveDemo: "https://itsmeow.tech",
-      github: "https://github.com/azrilpramudia/my-personal-website",
-      image: projects4,
-    },
-    {
       title: "Uninus Himatif Website",
       hasPeriod: false,
       period: "",
@@ -109,7 +93,7 @@ export const projects = [
       hasCategory: true,
       category: "Web Application",
       description:
-        "Uninus Himatif website is the website of the Uninus Informatics Engineering Student Association. This website focuses on education, information, galleries and organizational structure.",
+        "Full-stack app with JWT authentication (login/register), complete CRUD operations, protected routes, and responsive UI. Built with Express + MySQL, Bcrypt hashing, React, and Axios for API calls.",
       tags: ["Express", "Mysql", "JWT", "Bcrypt", "React", "Boostrap", "Axios"],
       featured: false,
       hasLiveDemo: false,
