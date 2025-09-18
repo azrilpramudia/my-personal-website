@@ -1,11 +1,11 @@
 export const experienceData = [
   {
-    title: "Scroll Facebook Engineer",
-    company: "IMPHNEN",
-    date: "Des 2024 – Present",
+    title: "IoT Engineer Intern",
+    company: "Langgeng Cipta Solusi",
+    date: "Sep 2025 – Present",
     descriptions: [
-      "Scoll Facebook in Community Grup",
-      "Popular Contributor 2024 for Posting JavaScript Memes",
+      "Training on how to use Arduino IDE application & ESP32",
+      "Learning basic programming using C/C++ for Arduino IDE with ESP32 to Compailing this code",
     ],
   },
   {
